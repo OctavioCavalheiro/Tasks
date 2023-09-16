@@ -1,8 +1,11 @@
 package br.com.octavio.tasks.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import java.util.List;
+import org.springframework.stereotype.Service;
+
 import br.com.octavio.tasks.entity.Tasks;
 import br.com.octavio.tasks.repository.TasksRepository;
 

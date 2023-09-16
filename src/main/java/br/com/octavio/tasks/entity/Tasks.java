@@ -13,7 +13,7 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
-@Entity //responsable for persisting data in the base
+@Entity //Responsible for persisting data in the base
 public class Tasks {
 
 @Id //defines an only key for identifying

@@ -46,19 +46,20 @@ public class TasksController {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("task not found");
 		}
 	}
-	
+
 	@PutMapping("/{id}")
-	public ResponseEntity<Tasks> updateTask(@PathVariable Long id, @RequestBody Tasks UpdatedTask){
+	public ResponseEntity<Tasks> updateTask(@PathVariable Long id, @RequestBody Tasks UpdatedTask) {
 		Tasks tasks = tasksServices.updateTask(id, UpdatedTask);
 		if (tasks != null) {
 			return ResponseEntity.ok(tasks);
 		} else {
-			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "task not foun");
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "task not found");
 		}
 	}
+
 	@DeleteMapping("/{id}")
-	public ResponseEntity<Void> deleteTask(@PathVariable Long id){
+	public ResponseEntity<Void> deleteTask(@PathVariable Long id) {
 		tasksServices.deleteTask(id);
 		return ResponseEntity.noContent().build();
-		}
+	}
 }
