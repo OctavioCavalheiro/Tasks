@@ -34,7 +34,7 @@ public class ClientServices{
 			existingClient.setName(updatedClient.getName());
 			existingClient.setEmail(updatedClient.getEmail());
 			existingClient.setCpf(updatedClient.getCpf());
-			existingClient.setAdress(updatedClient.getAdress());
+			existingClient.setAddress(updatedClient.getAddress());
 			return clientRepository.save(existingClient);
 		}
 		return null;

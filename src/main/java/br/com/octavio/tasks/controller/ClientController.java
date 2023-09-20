@@ -1,5 +1,7 @@
 package br.com.octavio.tasks.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,15 +27,20 @@ public class ClientController {
 	private ClientServices clientServices; 
 	
 	@PostMapping
-	public ResponseEntity<Client> createClient(@RequestBody Client client) {
+	public ResponseEntity<Client> createTasks(@RequestBody Client client) {
 		Client newClient = clientServices.createClient(client);
 		return ResponseEntity.status(HttpStatus.CREATED).body(newClient);
 }
+	@GetMapping
+	public ResponseEntity<List<Client>> listAllClient(){
+		List<Client> allClient= clientServices.ListAllClient();
+		return ResponseEntity.ok(allClient);}
+		
 	@GetMapping("/{id}")
-	public ResponseEntity<?> searchClientById(@PathVariable Long id, @RequestBody Client UpdateClient){
+	public ResponseEntity<?> searchClientById(@PathVariable Long id) {
 		Client client = clientServices.searchClientById(id);
 		if (client != null) {
-			return ResponseEntity.ok(client);		
+			return ResponseEntity.ok(client);
 		} else {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("client not found");
 		}
